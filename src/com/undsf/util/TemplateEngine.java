@@ -36,7 +36,12 @@ public class TemplateEngine {
         setVar(var, value);
     }
 
+    public void assign(Map<String, String> values) {
+        this.vars = values;
+    }
+
     public void clear(){
+        if (vars == null) vars = new HashMap<String, String>();
         vars.clear();
     }
 
@@ -45,6 +50,7 @@ public class TemplateEngine {
     }
 
     protected String getVar(String varName, String defaultValue){
+        if (vars == null) vars = new HashMap<String, String>();
         if (vars.containsKey(varName)){
             String varValue = vars.get(varName);
             return varValue;
@@ -53,6 +59,7 @@ public class TemplateEngine {
     }
 
     protected void setVar(String var, String value){
+        if (vars == null) vars = new HashMap<String, String>();
         vars.put(var, value);
     }
 
@@ -67,7 +74,8 @@ public class TemplateEngine {
             String value = getVar(varName);
             String src = leftDelimiter + varName + rightDelimiter;
             String dest = value;
-            result = result.replaceAll(src, dest);
+            if (value != null)
+                result = result.replaceAll(src, dest);
             index = matcher.end();
         }
         return result;
