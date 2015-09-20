@@ -8,8 +8,8 @@ import java.io.*;
 public class StringFileWriter extends OutputStreamWriter {
     private File file;
 
-    public StringFileWriter(String fileName, String charsetName) throws IOException {
-        super(new FileOutputStream(fileName), charsetName);
-        file = new File(fileName);
+    public StringFileWriter(String path, String charsetName) throws IOException {
+        super(new FileOutputStream(path), charsetName);
+        file = new File(path);
     }
 }
