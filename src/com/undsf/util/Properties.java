@@ -36,11 +36,22 @@ public abstract class Properties extends java.util.Properties {
             path = path.substring(10);
             internalResource = true;
         }
+        else if (path.startsWith(":")){
+            path = path.substring(1);
+            internalResource = true;
+        }
+        else if (path.startsWith("!")){
+            path = path.substring(1);
+            internalResource = true;
+        }
         if (internalResource){
             is = this.getClass().getResourceAsStream(path);
         }
         else{
             is = new FileInputStream(path);
+        }
+        if (is == null) { // || is.available() != 0
+            throw new IOException("文件流不可用！");
         }
         this.load(is);
         is.close();
