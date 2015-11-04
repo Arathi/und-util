@@ -6,6 +6,8 @@ import java.io.*;
  * Created by Arathi on 2015/9/19.
  */
 public class StringFileReader extends InputStreamReader {
+    public static final String DEFAULT_CHARSET = "UTF-8";
+
     private File file = null;
 
     public StringFileReader(String path) throws IOException{
@@ -30,9 +32,13 @@ public class StringFileReader extends InputStreamReader {
         String content = new String(contentArray, 0, readLength);
         return content;
     }
-	
+
     public static String ReadAll(String path) throws IOException{
-        StringFileReader sfr = new StringFileReader(path);
+        return ReadAll(path, DEFAULT_CHARSET);
+    }
+
+    public static String ReadAll(String path, String charset) throws IOException{
+        StringFileReader sfr = new StringFileReader(path, charset);
         String content = sfr.readAll();
         sfr.close();
         return content;

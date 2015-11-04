@@ -16,6 +16,7 @@ public abstract class Properties extends java.util.Properties {
     public String getProperty(String key) {
         String raw = super.getProperty(key);
         String target = null;
+        if (raw == null) return target;
         try {
             target = new String(raw.getBytes(INTERNAL_ENCODING), getTargetEncoding());
         }
@@ -50,11 +51,10 @@ public abstract class Properties extends java.util.Properties {
         else{
             is = new FileInputStream(path);
         }
-        if (is == null) { // || is.available() != 0
-            throw new IOException("文件流不可用！");
+        if (is == null) {
+            throw new IOException("File Not Found!");
         }
         this.load(is);
         is.close();
-        is = null;
     }
 }
