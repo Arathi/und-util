@@ -9,7 +9,7 @@ import static junit.framework.Assert.assertEquals;
  */
 public class TestTemplateEngine {
     @Test
-    public void test() {
+    public void testTemplateEngine() {
         TemplateEngine te = new TemplateEngine("\\$<", ">");
         te.assign("msisdn", "13500899512");
         te.assign("start_month", "5");
