@@ -2,7 +2,7 @@ package com.undsf.util;
 
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by Arathi on 2015/6/27.
