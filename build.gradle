@@ -1,5 +1,5 @@
 group 'com.undsf'
-version '0.1-SNAPSHOT'
+version '0.1.1'
 
 apply plugin: 'java'
 
@@ -12,14 +12,6 @@ repositories {
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
-
-//subprojects {
-//    gradle.projectsEvaluated {
-//        tasks.withType(Compile) {
-//            options.compilerArgs << "-Xlint:unchecked -Xlint:deprecation"
-//        }
-//    }
-//}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
