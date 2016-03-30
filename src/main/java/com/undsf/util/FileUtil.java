@@ -10,7 +10,7 @@ public class FileUtil {
      * 复制文件
      * @param readfile 源文件路径
      * @param writeFile 目标文件路径
-     * @return
+     * @return 复制是否成功
      */
     public static boolean cp(String readfile,String writeFile) {
         try {
